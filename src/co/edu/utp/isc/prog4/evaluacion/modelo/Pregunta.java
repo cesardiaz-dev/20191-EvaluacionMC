@@ -7,6 +7,7 @@ package co.edu.utp.isc.prog4.evaluacion.modelo;
 
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,9 @@ public abstract class Pregunta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(nullable = false)
     private String descripcion;
+    @Column
     private Double peso;
 
     public Pregunta() {

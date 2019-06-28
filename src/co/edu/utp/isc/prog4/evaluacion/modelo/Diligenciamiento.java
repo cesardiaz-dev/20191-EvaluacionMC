@@ -8,10 +8,15 @@ package co.edu.utp.isc.prog4.evaluacion.modelo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -24,10 +29,20 @@ public class Diligenciamiento implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @ManyToOne
     private Prueba prueba;
+    
+    @Column
     private String nombreEstudiante;
+    
+    @Column
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
+    
+    @OneToMany
     private List<Respuesta> respuestas;
+    
+    @Column
     private Double nota;
 
     public Diligenciamiento() {

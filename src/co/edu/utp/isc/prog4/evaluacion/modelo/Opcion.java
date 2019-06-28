@@ -10,12 +10,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author utp
  */
 @Entity
+@Table(name = "options")
 public class Opcion implements Serializable {
     
     @Id
@@ -24,7 +26,7 @@ public class Opcion implements Serializable {
     
     private String letra;
     private String descripcion;
-    private Object imagen;
+    private byte[] imagen;
 
     public Opcion() {
     }
@@ -58,11 +60,11 @@ public class Opcion implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Object getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(Object imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 

@@ -8,15 +8,20 @@ package co.edu.utp.isc.prog4.evaluacion.modelo;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author utp
  */
 @Entity
+@Table(name = "multiple_respuesta")
 public class PreguntaSeleccionMultipleMultipleRespuesta extends Pregunta implements Serializable {
-
+    
+    @OneToMany
     private List<Opcion> opciones;
+    @OneToMany
     private List<Opcion> respuestaCorrecta;
 
     public PreguntaSeleccionMultipleMultipleRespuesta() {

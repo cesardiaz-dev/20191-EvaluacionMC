@@ -7,25 +7,36 @@ package co.edu.utp.isc.prog4.evaluacion.modelo;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author utp
  */
 @Entity
+@Table(name = "tests")
 public class Prueba implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Column(name = "class_name", nullable = false)
     private String materia;
+    
+    @Column(name = "name", nullable = false)
     private String nombre;
+    
+    @OneToMany
     private List<Pregunta> preguntas;
+    
+    @Column(name = "maxNote")
     private Double notaMaxima;
 
     public Prueba() {

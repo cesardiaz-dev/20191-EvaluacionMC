@@ -6,10 +6,12 @@
 package co.edu.utp.isc.prog4.evaluacion.modelo;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -22,7 +24,9 @@ public class Respuesta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
     private Pregunta pregunta;
+    @Column(nullable = false)
     private String respuesta;
 
     public Respuesta() {
