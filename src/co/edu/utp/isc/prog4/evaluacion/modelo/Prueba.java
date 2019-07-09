@@ -24,7 +24,7 @@ import javax.persistence.Table;
 public class Prueba implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     @Column(name = "class_name", nullable = false)
@@ -46,6 +46,14 @@ public class Prueba implements Serializable {
         this.materia = materia;
         this.nombre = nombre;
         this.notaMaxima = notaMaxima;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getMateria() {
@@ -79,5 +87,16 @@ public class Prueba implements Serializable {
     public void setNotaMaxima(Double notaMaxima) {
         this.notaMaxima = notaMaxima;
     }
+
+    @Override
+    public String toString() {
+        return "Prueba{" + "id=" + id 
+                + ", materia=" + materia 
+                + ", nombre=" + nombre 
+                + ", preguntas=" + preguntas 
+                + ", notaMaxima=" + notaMaxima + '}';
+    }
+    
+    
 
 }
